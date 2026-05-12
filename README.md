@@ -273,3 +273,19 @@ SneakerShop Simulator — это симулятор управления маг�
 |---|---|---|---|
 | 12.05.2026 | v0.1 | Создан дизайн-документ, определена концепция игры SneakerShop Simulator | Dan203302 |
 | 12.05.2026 | v0.1 | Создана структура репозитория, добавлен .gitignore для Unity | Dan203302 |
+
+---
+
+## Practical 6 — Скрипты и логирование (SneakerShop)
+
+В сцене **SneakerShop** созданы и прикреплены 5 C#-скриптов:
+
+| Скрипт | Объект | Функция |
+|---|---|---|
+| StartLogger | Cafe_Shelf_1 | Логирует имя и позицию объекта при старте игры |
+| CoordinateLogger | Main Camera | По нажатию **C** выводит текущие координаты камеры |
+| CollisionReporter | PhysicsObject_Pract6 | Логирует OnCollisionEnter/Exit с указанием силы удара |
+| TriggerReporter | TriggerZone_Pract6 | Логирует OnTriggerEnter/Exit — кто вошёл в зону |
+| PhysicsImpulse | PhysicsObject_Pract6 | По нажатию **F** применяет импульс (AddForce) вверх |
+
+**Используется New Input System** (Keyboard.current) вместо устаревшего Input.GetKeyDown.
