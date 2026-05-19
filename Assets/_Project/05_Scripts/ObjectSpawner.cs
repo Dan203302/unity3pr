@@ -3,26 +3,51 @@ using UnityEngine.InputSystem;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public GameObject[] prefabs;
-    public float spawnRangeX = 8f;
-    public float spawnY = 15f;
+    public GameObject prefabToSpawn;
+    public Transform spawnPoint;
+    public float spawnForce = 5f;
+
+    private InputSystem_Actions inputActions;
+    private bool spawnRequested;
+
+    void Awake()
+    {
+        inputActions = new InputSystem_Actions();
+        inputActions.Player.SpawnObject.performed += ctx => spawnRequested = true;
+    }
+
+    void OnEnable()
+    {
+        inputActions.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputActions.Disable();
+    }
 
     void Update()
     {
-        var kb = Keyboard.current;
-        if (kb == null) return;
+        if (spawnRequested)
+        {
+            spawnRequested = false;
 
-        if (kb.digit1Key.wasPressedThisFrame) Spawn(0);
-        else if (kb.digit2Key.wasPressedThisFrame) Spawn(1);
-        else if (kb.digit3Key.wasPressedThisFrame) Spawn(2);
-        else if (kb.digit4Key.wasPressedThisFrame) Spawn(3);
-        else if (kb.spaceKey.wasPressedThisFrame) Spawn(Random.Range(0, prefabs.Length));
-    }
+            if (prefabToSpawn == null || spawnPoint == null)
+                return;
 
-    void Spawn(int index)
-    {
-        if (prefabs == null || index >= prefabs.Length || prefabs[index] == null) return;
-        Vector3 pos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), spawnY, Random.Range(-3f, 3f));
-        Instantiate(prefabs[index], pos, Random.rotation);
+            GameObject spawnedObject = Instantiate(
+                prefabToSpawn,
+                spawnPoint.position,
+                spawnPoint.rotation
+            );
+
+            Rigidbody rb = spawnedObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(spawnPoint.forward * spawnForce, ForceMode.Impulse);
+            }
+
+            Debug.Log("SpawnObject: создан объект " + spawnedObject.name + " в точке " + spawnPoint.position);
+        }
     }
 }
