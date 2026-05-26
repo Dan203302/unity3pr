@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5757ecde177536a4ab5ccc500a5974a7, type: 3}
+  m_Name: DailyRewardSystem
+  m_EditorClassIdentifier: Assembly-CSharp::DailyRewardSystem
+  weeklyRewards:
+  - day: 1
+    rewardType: 1
+    rewardAmount: 30
+    isSpecial: 0
+    isClaimed: 0
+    isAvailable: 0
+  - day: 2
+    rewardType: 2
+    rewardAmount: 30
+    isSpecial: 0
+    isClaimed: 0
+    isAvailable: 0
+  - day: 3
+    rewardType: 0
+    rewardAmount: 50
+    isSpecial: 0
+    isClaimed: 0
+    isAvailable: 0
+  - day: 4
+    rewardType: 3
+    rewardAmount: 30
+    isSpecial: 0
+    isClaimed: 0
+    isAvailable: 0
+  - day: 5
+    rewardType: 4
+    rewardAmount: 2
+    isSpecial: 0
+    isClaimed: 0
+    isAvailable: 0
+  - day: 6
+    rewardType: 0
+    rewardAmount: 100
+    isSpecial: 0
+    isClaimed: 0
+    isAvailable: 0
+  - day: 7
+    rewardType: 5
+    rewardAmount: 1
+    isSpecial: 1
+    isClaimed: 0
+    isAvailable: 0
+  streakBonus: 10
+  maxStreakDays: 28

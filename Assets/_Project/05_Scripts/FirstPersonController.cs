@@ -10,7 +10,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float gravity = -9.81f;
 
     [Header("Look Settings")]
-    [SerializeField] private float mouseSensitivity = 2f;
+    [SerializeField] private float mouseSensitivity = 0.2f;
     [SerializeField] private float maxLookAngle = 90f;
 
     private CharacterController characterController;

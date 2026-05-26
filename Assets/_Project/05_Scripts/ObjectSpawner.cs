@@ -48,6 +48,11 @@ public class ObjectSpawner : MonoBehaviour
             }
 
             Debug.Log("SpawnObject: создан объект " + spawnedObject.name + " в точке " + spawnPoint.position);
+
+            // Notify CustomerNPC if present in scene
+            GameObject npcObj = GameObject.Find("CustomerNPC");
+            if (npcObj != null)
+                npcObj.SendMessage("ReceiveBox", spawnedObject, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

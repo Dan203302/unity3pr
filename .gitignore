@@ -55,3 +55,9 @@ crashlytics-build.properties
 
 # Screenshots from build
 screenshot_*.png
+
+# Platform build output folders
+webgl/
+win/
+and/
+.utmp/
